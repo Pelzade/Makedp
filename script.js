@@ -2,9 +2,6 @@
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
 
-  // Override CSS touch-action to allow scrolling on canvas
-  canvas.style.touchAction = 'auto';
-
   const overlayInput = document.getElementById('overlayInput');
   const dpInput = document.getElementById('dpInput');
   const scaleSlider = document.getElementById('scaleSlider');
@@ -58,7 +55,7 @@
     }
   }
 
-  // ---- Drag start ----
+  // ---- Start drag (only if touch/mouse is inside the image) ----
   function startDrag(e) {
     if (!dpImage) return;
     const { x, y } = getCanvasCoords(e);
