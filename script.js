@@ -55,8 +55,7 @@
     }
   }
 
-  // ---- Touch & Mouse event handlers ----
-
+  // ---- Start drag (only if touch/mouse is inside the image) ----
   function startDrag(e) {
     if (!dpImage) return;
     const { x, y } = getCanvasCoords(e);
@@ -64,8 +63,7 @@
       isDragging = true;
       dragOffsetX = x - dpX;
       dragOffsetY = y - dpY;
-      // Prevent default only when we actually start dragging
-      e.preventDefault();
+      e.preventDefault(); // only prevent default when actually dragging
     }
     // If not inside, do nothing – allow scrolling
   }
@@ -86,7 +84,7 @@
     }
   }
 
-  // ---- Mouse events (no interference with scrolling) ----
+  // ---- Mouse events ----
   canvas.addEventListener('mousedown', startDrag);
   window.addEventListener('mousemove', (e) => {
     if (isDragging) moveDrag(e);
