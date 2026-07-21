@@ -9,22 +9,25 @@
 <body>
 <div class="main-layout">
   
+
   <!-- main composer -->
   <div class="container">
-    <h2 style="margin-top: 0; margin-bottom: 20px; font-weight: 500; font-size: 1.6rem;">Frame your Display Photos 100% Free</h2>
+    <h2 style="margin-top: 0; margin-bottom: 20px; font-weight: 500; font-size: 1.6rem;">Branded Profile</h2>
 
     <div class="controls">
       <div class="field">
-        <label for="overlayInput">Upload Frame (PNG Only)</label>
+        <label for="overlayInput" style="font-size: 16px;">Upload Frame (Square Format &amp; PNG Only)</label>
         <input type="file" id="overlayInput" accept="image/png" />
       </div>
       <div class="field">
-        <label for="dpInput">Upload Your Display Picture (JPG, PNG, etc.)</label>
+        <label for="dpInput">Upload Your Display Picture</label>
         <input type="file" id="dpInput" accept="image/*" />
       </div>
       <div class="field slider-field">
         <label for="scaleSlider">Scale DP</label>
         <input type="range" id="scaleSlider" min="0.5" max="2" step="0.01" value="1" />
+        <p style="font-size: 13px; color: #6c757d; margin: 8px auto 0 auto; line-height: 1.4; text-align: center; width: 100%; display: block;">
+          👆 Pinch and hold image to move into position.
       </div>
     </div>
 
@@ -37,6 +40,8 @@
       <button id="resetBtn">Reset</button>
     </div>
   </div>
+
+ 
 
 <script src="script.js"></script>
 </body>
