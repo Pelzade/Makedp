@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Profile Picture Composer</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-<div class="main-layout">
-  <!-- LEFT AD (desktop) -->
-  <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; padding:8px; box-sizing:border-box; overflow:hidden;">
-  <a href="https://s.click.aliexpress.com/e/_c2zTkqWT" target="_blank" style="display:block; width:100%; max-width:100%;">
-    <img src="//ae01.alicdn.com/kf/S25e08acd163c408ba42f34bd415f29d1E.jpg_80x80.jpg" alt="Ad" style="width:100%; max-width:100%; height:auto; display:block;" />
-  </a>
-</div>
-  <!-- main composer -->
+<div style="display:flex; justify-content:center; align-items:center; min-height:100vh; padding:20px;">
   <div class="container">
     <h2 style="margin-top: 0; margin-bottom: 20px; font-weight: 500; font-size: 1.6rem;">Branded Profile</h2>
 
@@ -31,7 +15,7 @@
         <label for="scaleSlider">Scale DP</label>
         <input type="range" id="scaleSlider" min="0.5" max="2" step="0.01" value="1" />
         <p style="font-size: 13px; color: #6c757d; margin: 8px auto 0 auto; line-height: 1.4; text-align: center; width: 100%; display: block;">
-          👆 Pinch and hold image to move into position. While scrolling on the page, do so outside of the canvas area 😊
+          👆 Pinch and hold image to move into position.
         </p>
       </div>
     </div>
@@ -45,14 +29,4 @@
       <button id="resetBtn">Reset</button>
     </div>
   </div>
-
-  <!-- RIGHT AD (desktop) -->
- <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:5px;">
-  <a href='https://s.click.aliexpress.com/e/_c4V4D6VZ?bz=300*250' target='_parent' style="display:block; width:100%; max-width:100%;">
-    <img src='https://ae01.alicdn.com/kf/S3619e57974f148d087c950fe497cdf55q/300x250.jpg' alt="AliExpress Ad" style="width:100%; max-width:100%; height:auto; max-height:100%; object-fit:contain; display:block;" />
-  </a>
 </div>
-
-<script src="script.js"></script>
-</body>
-</html>
