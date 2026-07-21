@@ -121,7 +121,7 @@ input[type="file"]:hover {
   overflow: hidden;
   margin-bottom: 22px;
   background: #fff;
-  /* touch-action: none;  <-- removed to allow scrolling */
+  touch-action: none;
 }
 canvas {
   display: block;
@@ -129,7 +129,7 @@ canvas {
   height: auto;
   max-width: 100%;
   background: white;
-  /* touch-action: none;  <-- removed */
+  touch-action: none;
 }
 .actions {
   display: flex;
