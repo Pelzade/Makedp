@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MakeDP – Free Profile Picture Composer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>MakeDP – Profile Picture Composer</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,13 +12,14 @@
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">
-        <span class="logo-icon">🖼️</span>
-        <span class="logo-text">MakeDP</span>
+        <a href="index.html">
+          <img src="logo.png" alt="MakeDP Logo" class="nav-logo-img" />
+        </a>
       </div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="tool.html" class="nav-cta">Get Started →</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="tool.html" class="nav-cta active">Use MakeDP now →</a></li>
       </ul>
       <div class="nav-toggle" id="navToggle">
         <span></span><span></span><span></span>
@@ -26,87 +27,53 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-container">
-      <div class="hero-content">
-        <span class="hero-badge">🎯 Completely Free</span>
-        <h1>Create Your <span class="highlight">Branded</span> Profile Picture</h1>
-        <p class="hero-sub">
-          Upload a frame, add your photo, and position it perfectly. <br />
-          <strong>100% free</strong> – no sign-up, no watermark, no limits.
-        </p>
-        <div class="hero-buttons">
-          <a href="tool.html" class="btn btn-primary">Use MakeDP for Free →</a>
-        </div>
-        <div class="hero-stats">
-          <span>✅ No registration</span>
-          <span>✅ PNG export</span>
-          <span>✅ Unlimited use</span>
-        </div>
+  <!-- Ad Top (optional) -->
+  <div class="tool-ad-top">
+    <!-- Ad code here -->
+  </div>
+
+  <!-- Main composer -->
+  <div class="container">
+    <h2 style="margin-top: 0; margin-bottom: 20px; font-weight: 500; font-size: 1.6rem;">Branded Profile</h2>
+
+    <div class="controls">
+      <div class="field">
+        <label for="overlayInput">Upload Frame (PNG Only)</label>
+        <input type="file" id="overlayInput" accept="image/png" />
       </div>
-      <div class="hero-preview">
-        <div class="preview-box">
-          <div class="preview-inner">
-            <span>🖼️</span>
-            <span>Frame + DP</span>
-            <span style="font-size:12px; opacity:0.7;">Drag &amp; scale</span>
-          </div>
-        </div>
+      <div class="field">
+        <label for="dpInput">Upload Your Display Picture (JPG, PNG, etc.)</label>
+        <input type="file" id="dpInput" accept="image/*" />
+      </div>
+      <div class="field slider-field">
+        <label for="scaleSlider">Scale DP</label>
+        <input type="range" id="scaleSlider" min="0.5" max="2" step="0.01" value="1" />
       </div>
     </div>
-  </section>
 
-  <!-- How It Works -->
-  <section class="how-it-works" id="how-it-works">
-    <div class="section-container">
-      <h2 class="section-title">How It Works</h2>
-      <p class="section-sub">Three simple steps to your branded profile picture – all free</p>
-
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <div class="step-icon">📤</div>
-          <h3>Upload Your Frame</h3>
-          <p>Choose a PNG frame (square format recommended). This will overlay on top of your photo.</p>
-        </div>
-
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <div class="step-icon">📸</div>
-          <h3>Add Your Photo</h3>
-          <p>Upload your display picture. Position it anywhere by dragging, and adjust the size with the slider.</p>
-        </div>
-
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <div class="step-icon">⬇️</div>
-          <h3>Download &amp; Share</h3>
-          <p>Download your finished profile picture as a high-quality PNG. Ready for any platform.</p>
-        </div>
-      </div>
-
-      <div class="steps-cta">
-        <a href="tool.html" class="btn btn-primary">Try It Now – Free</a>
-      </div>
+    <div class="canvas-wrapper">
+      <canvas id="canvas" width="1000" height="1000"></canvas>
     </div>
-  </section>
+
+    <div class="actions">
+      <button id="downloadBtn">Download</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+  </div>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" style="margin-top: 40px;">
     <div class="footer-container">
       <div class="footer-brand">
-        <span class="logo-icon">🖼️</span>
-        <span class="logo-text">MakeDP</span>
-        <p>Free profile picture composer for everyone.</p>
+        <img src="logo.png" alt="MakeDP Logo" style="height: 32px; width: auto; display: inline-block; margin-bottom: 8px;" />
+        <p style="margin-top: 4px;">Free profile picture composer for everyone.</p>
       </div>
       <div class="footer-links">
         <a href="index.html">Home</a>
-        <a href="#how-it-works">How It Works</a>
+        <a href="index.html#how-it-works">How It Works</a>
         <a href="tool.html">Get Started</a>
       </div>
       <div class="footer-ads">
-        <!-- Ad space – you can add your ad code here -->
         <span style="font-size:12px; opacity:0.5;">📢 Ad placeholder</span>
       </div>
     </div>
