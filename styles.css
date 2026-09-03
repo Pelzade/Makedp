@@ -39,23 +39,15 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.nav-logo {
+.nav-logo a {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 22px;
-  color: #1a1a2e;
 }
-.nav-logo .logo-icon {
-  font-size: 28px;
-}
-.nav-logo .logo-text {
-  background: linear-gradient(135deg, #007bff, #6c5ce7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.nav-logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 .nav-links {
   display: flex;
@@ -181,21 +173,20 @@ body {
   width: 100%;
   max-width: 400px;
   aspect-ratio: 1/1;
-  background: linear-gradient(135deg, #ffffff, #f1f3f5);
+  background: #ffffff;
   border-radius: 24px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
   border: 2px solid rgba(255, 255, 255, 0.6);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.preview-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  font-size: 20px;
-  color: #4a5568;
+.hero-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* ===== BUTTONS ===== */
@@ -301,62 +292,6 @@ body {
 .steps-cta {
   text-align: center;
   margin-top: 48px;
-}
-
-/* ===== PRICING ===== */
-.pricing-section {
-  background: linear-gradient(170deg, #f8f9fa, #e9ecef);
-}
-.pricing-card {
-  max-width: 500px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 24px;
-  padding: 48px 40px;
-  text-align: center;
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.06);
-  border: 2px solid #e9ecef;
-}
-.free-card {
-  border-color: #007bff;
-  position: relative;
-}
-.pricing-badge {
-  display: inline-block;
-  background: #d4edda;
-  color: #155724;
-  padding: 6px 20px;
-  border-radius: 40px;
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 16px;
-}
-.pricing-price {
-  font-size: 56px;
-  font-weight: 800;
-  color: #1a1a2e;
-}
-.pricing-period {
-  color: #4a5568;
-  font-size: 16px;
-  margin-bottom: 24px;
-}
-.pricing-features {
-  list-style: none;
-  text-align: left;
-  padding: 0;
-  margin: 24px 0 32px;
-}
-.pricing-features li {
-  padding: 8px 0;
-  border-bottom: 1px solid #f1f3f5;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.pricing-features li:last-child {
-  border-bottom: none;
 }
 
 /* ===== TOOL PAGE (composer) ===== */
@@ -493,7 +428,7 @@ button:hover {
   margin-left: 8px;
 }
 .footer-brand p {
-  margin-top: 8px;
+  margin-top: 4px;
   font-size: 14px;
   color: #94a3b8;
 }
@@ -605,9 +540,6 @@ button:hover {
     width: 100%;
     max-width: 260px;
   }
-  .pricing-card {
-    padding: 32px 20px;
-  }
   .section-title {
     font-size: 28px;
   }
@@ -627,11 +559,8 @@ button:hover {
     height: 60px;
     padding: 0 12px;
   }
-  .nav-logo {
-    font-size: 18px;
-  }
-  .nav-logo .logo-icon {
-    font-size: 22px;
+  .nav-logo-img {
+    height: 32px;
   }
   .hero {
     padding: 30px 16px 50px;
@@ -644,5 +573,8 @@ button:hover {
   }
   input[type="file"] {
     max-width: 100%;
+  }
+  .preview-box {
+    max-width: 250px;
   }
 }
