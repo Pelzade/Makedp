@@ -1,6 +1,23 @@
+// ===== NAV TOGGLE (mobile) =====
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.getElementById('navToggle');
+  const links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function() {
+      links.classList.toggle('open');
+    });
+  }
+});
+
+// ===== TOOL LOGIC (only runs if canvas exists) =====
 (function() {
   const canvas = document.getElementById('canvas');
+  if (!canvas) return; // not on tool page
+
   const ctx = canvas.getContext('2d');
+
+  // Allow scrolling on canvas
+  canvas.style.touchAction = 'auto';
 
   const overlayInput = document.getElementById('overlayInput');
   const dpInput = document.getElementById('dpInput');
@@ -55,7 +72,6 @@
     }
   }
 
-  // ---- Start drag (only if touch/mouse is inside the image) ----
   function startDrag(e) {
     if (!dpImage) return;
     const { x, y } = getCanvasCoords(e);
@@ -63,14 +79,13 @@
       isDragging = true;
       dragOffsetX = x - dpX;
       dragOffsetY = y - dpY;
-      e.preventDefault(); // only prevent default when actually dragging
+      e.preventDefault();
     }
-    // If not inside, do nothing – allow scrolling
   }
 
   function moveDrag(e) {
     if (!isDragging) return;
-    e.preventDefault(); // prevent scrolling while dragging
+    e.preventDefault();
     const { x, y } = getCanvasCoords(e);
     dpX = x - dragOffsetX;
     dpY = y - dragOffsetY;
@@ -84,35 +99,32 @@
     }
   }
 
-  // ---- Mouse events ----
+  // Mouse events
   canvas.addEventListener('mousedown', startDrag);
   window.addEventListener('mousemove', (e) => {
     if (isDragging) moveDrag(e);
   });
   window.addEventListener('mouseup', endDrag);
 
-  // ---- Touch events (allow scrolling unless dragging) ----
+  // Touch events
   canvas.addEventListener('touchstart', startDrag, { passive: false });
   canvas.addEventListener('touchmove', moveDrag, { passive: false });
   canvas.addEventListener('touchend', endDrag, { passive: false });
   canvas.addEventListener('touchcancel', endDrag, { passive: false });
 
-  // ---- Scale slider (centered scaling) ----
+  // Scale slider (centered)
   scaleSlider.addEventListener('input', () => {
     if (!dpImage) return;
     const newScale = parseFloat(scaleSlider.value);
-    // Compute current center of the image
     const centerX = dpX + (dpImage.width * dpScale) / 2;
     const centerY = dpY + (dpImage.height * dpScale) / 2;
-    // Update scale
     dpScale = newScale;
-    // Reposition so the center stays the same
     dpX = centerX - (dpImage.width * dpScale) / 2;
     dpY = centerY - (dpImage.height * dpScale) / 2;
     drawCanvas();
   });
 
-  // ---- Upload DP ----
+  // Upload DP
   dpInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -131,7 +143,7 @@
     reader.readAsDataURL(file);
   });
 
-  // ---- Upload overlay (PNG) ----
+  // Upload overlay
   overlayInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -149,7 +161,7 @@
     reader.readAsDataURL(file);
   });
 
-  // ---- Download ----
+  // Download
   downloadBtn.addEventListener('click', () => {
     const link = document.createElement('a');
     link.download = 'profile-picture.png';
@@ -157,7 +169,7 @@
     link.click();
   });
 
-  // ---- Reset ----
+  // Reset
   resetBtn.addEventListener('click', () => {
     overlayImage = null;
     dpImage = null;
@@ -172,9 +184,6 @@
     drawCanvas();
   });
 
-  // ---- Initial empty canvas ----
   drawCanvas();
-
-  // Prevent context menu on canvas
   canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 })();
